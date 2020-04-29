@@ -1,0 +1,18 @@
+@media screen and (max-width: 375px) {
+    .NavMobile {
+      display: none;
+    }
+  }
+  
+  @media screen and (min-width: 376px) and (max-width: 768px) {
+    .NavDestock {
+      display: none;
+    }
+  }
+  
+  @media screen and (min-width: 769px) {
+    .NavDestock {
+      display: none;
+    }
+  }
+  
