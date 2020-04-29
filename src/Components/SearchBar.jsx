@@ -1,18 +1,19 @@
 import React from "react";
-import { InputGroup, InputGroupAddon, InputGroupText, Input } from "reactstrap";
+import Input from "./Input";
+import { InputGroup, InputGroupAddon, Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearchLocation } from "@fortawesome/free-solid-svg-icons";
 import "./SearchBar.css";
 
-const SearchBar = props => {
+const SearchBar = ({ setKeywords, onSearch }) => {
   return (
     <div>
-      <InputGroup className="searchBar">
-        <Input />
+      <InputGroup>
+        <Input setText={setKeywords}/>
         <InputGroupAddon addonType="append">
-          <InputGroupText>
+          <Button color="secondary" onClick={onSearch}>
             <FontAwesomeIcon icon={faSearchLocation} />
-          </InputGroupText>
+          </Button>
         </InputGroupAddon>
       </InputGroup>
     </div>
