@@ -39,14 +39,14 @@ class App extends React.Component {
           />
           {this.state.cam.map(e => {
             return (
-              <div>
-                <Card>
+              <div className="CardDiv">
+                <Card className="TitleCard">
                   <CardBody>
-                    <CardText className="TitleCard">
+                    <CardText >
                       {e.title}
                     </CardText>
                   </CardBody>
-                  <CardImg className="ImgCard"
+                  <CardImg
                     top
                     width="100%"
                     src={e.image.current.preview}
