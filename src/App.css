@@ -13,6 +13,28 @@
   }
 }
 
+.TitleCard{
+  text-align: center;
+}
+
+.ImgCard{
+  padding: 5%;
+  border-radius: 10%;
+  box-shadow: 2px 4px 5px black;
+}
+
+.imgLogo{
+  height: 14rem;
+  width: auto;
+  margin-top: 30%;
+}
+
+.Slogan{
+  margin-top: 5%;
+  font-style: italic;
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -36,3 +58,4 @@
     transform: rotate(360deg);
   }
 }
+
