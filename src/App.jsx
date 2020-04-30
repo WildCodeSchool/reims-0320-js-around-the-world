@@ -8,28 +8,25 @@ class App extends React.Component {
     super(props);
     this.state = {
       keywords1: null,
-      webcam: false,
-      images: ""
+      images: "",
+      cam : [],
+      cam2 : [],
     };
   }
   setKeywords1 = keywords1 => this.setState({ keywords1 });
 
   SearchCam = () => {
     Axios.get(
-      `https://api.windy.com/api/webcams/v2/list/webcam=${
-        this.state.keywords1
-      }?show=webcams:image,location,player&key=FVKqXhuTWBoicKC5bzKgJW9re2xjxNtN`
+      `https://api.windy.com/api/webcams/v2/list/country=${this.state.keywords1}?show=webcams:image,location,player&key=FVKqXhuTWBoicKC5bzKgJW9re2xjxNtN`
     )
-      .then(response => response.data)
-      .then(data => {
-        const image = data.result.webcams[0].image.current.preview;
-        this.setState({
-          images: image
-        });
-      });
+      .then(response => {
+         this.setState({cam : response.data.result.webcams})
+         this.setState({cam2  : response.data.result.webcams})
+      })
   };
 
   render() {
+    console.log(this.state.cam2)
     return (
       <>
         <div className="App">
@@ -39,9 +36,14 @@ class App extends React.Component {
             onSearch={this.SearchCam}
             className="test"
           />
-          <div>
-            <img src={this.state.images}/>
-          </div>
+          {this.state.cam.map(e => {
+            return <p>{e.title}</p>
+          })}
+          
+          {this.state.cam2.map(i => {
+            return <img src={i.image.current.preview} alt="Malik" />
+          })}
+
         </div>
         <div />
       </>
@@ -50,3 +52,11 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+ // .then(data => {
+      //   const image = data.result.webcams[1].image.current.preview;
+      //   this.setState({
+      //     images: image
+      //   });
+      // });
