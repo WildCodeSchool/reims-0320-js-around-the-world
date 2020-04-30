@@ -3,6 +3,7 @@ import Axios from "axios";
 import NavBarMB from "./Components/NavBar";
 import SearchBar from "./Components/SearchBar";
 import { Card, CardImg, CardText, CardBody } from "reactstrap";
+import "./App.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -41,11 +42,11 @@ class App extends React.Component {
               <div>
                 <Card>
                   <CardBody>
-                    <CardText>
+                    <CardText className="TitleCard">
                       {e.title}
                     </CardText>
                   </CardBody>
-                  <CardImg
+                  <CardImg className="ImgCard"
                     top
                     width="100%"
                     src={e.image.current.preview}
@@ -54,6 +55,10 @@ class App extends React.Component {
                 </Card>
               </div>)
           })}
+            <div>
+              <img className="imgLogo" src="https://i.ibb.co/N7p82Sg/hackathon-Logo.png" alt="Logo"/>
+              <p className="Slogan">See the world in your seat!</p>
+            </div>
         </div>
       </>
     );
