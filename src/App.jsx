@@ -2,6 +2,7 @@ import React from "react";
 import Axios from "axios";
 import NavBarMB from "./Components/NavBar";
 import SearchBar from "./Components/SearchBar";
+import { Card, CardImg, CardText, CardBody } from "reactstrap";
 
 class App extends React.Component {
   constructor(props) {
@@ -9,8 +10,8 @@ class App extends React.Component {
     this.state = {
       keywords1: null,
       images: "",
-      cam : [],
-      cam2 : [],
+      cam: [],
+      cam2: [],
     };
   }
   setKeywords1 = keywords1 => this.setState({ keywords1 });
@@ -20,8 +21,7 @@ class App extends React.Component {
       `https://api.windy.com/api/webcams/v2/list/country=${this.state.keywords1}?show=webcams:image,location,player&key=FVKqXhuTWBoicKC5bzKgJW9re2xjxNtN`
     )
       .then(response => {
-         this.setState({cam : response.data.result.webcams})
-         this.setState({cam2  : response.data.result.webcams})
+        this.setState({ cam: response.data.result.webcams })
       })
   };
 
@@ -37,26 +37,26 @@ class App extends React.Component {
             className="test"
           />
           {this.state.cam.map(e => {
-            return <p>{e.title}</p>
+            return (
+              <div>
+                <Card>
+                  <CardBody>
+                    <CardText>
+                      {e.title}
+                    </CardText>
+                  </CardBody>
+                  <CardImg
+                    top
+                    width="100%"
+                    src={e.image.current.preview}
+                    alt="Card image cap"
+                  />
+                </Card>
+              </div>)
           })}
-          
-          {this.state.cam2.map(i => {
-            return <img src={i.image.current.preview} alt="Malik" />
-          })}
-
         </div>
-        <div />
       </>
     );
   }
 }
-
 export default App;
-
-
- // .then(data => {
-      //   const image = data.result.webcams[1].image.current.preview;
-      //   this.setState({
-      //     images: image
-      //   });
-      // });
