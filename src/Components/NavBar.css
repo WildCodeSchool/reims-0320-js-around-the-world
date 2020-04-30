@@ -1,13 +1,6 @@
-#SearchBar{
-    border-end-end-radius: 0;
-}
-
 @media screen and (max-width: 375px) {
     .NavMobile {
       display: none;
-    }
-    #SearchBar{
-        width: 89%
     }
   }
   
